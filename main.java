@@ -66,7 +66,7 @@ public class main {
         // Loop backwards from the start day towards today (day 0)
         int start = 7 - curr.daysAway;
         for (int i = start; i <= 6; i++) {
-            String day = daysOfWeek[i]
+            String day = daysOfWeek[i];
             int availHours = weekHours.get(day);
             if (availHours >= curr.time) {
                 weekHours.put(day, availHours - curr.time);
