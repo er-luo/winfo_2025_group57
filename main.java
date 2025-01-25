@@ -16,7 +16,7 @@ public class Main {
         System.out.println("Welcome to Task Scheduler!");
 
 		initializeDays();
-		printDays();
+		//printDays();
 
         initializeSchedule();
 
@@ -113,7 +113,7 @@ public class Main {
     }
 
     // public static void splitScheduler(Task curr) {
-
+        
     // }
 
     public static void initializeSchedule() {
