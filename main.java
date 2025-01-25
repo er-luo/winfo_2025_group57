@@ -3,7 +3,7 @@ import java.util.*;
 public class Main {
 
     // Global Variables
-    static Map<Integer, ArrayList<Object>> taskList = new HashMap<>();
+    static Map<Integer, ArrayList<Integer>> taskList = new HashMap<>();
     static int hoursAvailable = 12;
     static boolean[] available = new boolean[12]; // Represents 12 hours of availability
 
@@ -12,9 +12,9 @@ public class Main {
         System.out.println("Welcome to Task Scheduler!");
 
         // Example usage:
-        setUp(); // Set up unavailable hours
-        taskAdd(1, "2025-01-31", 3, "Study", estimateTime("Study")); // Add a sample task
-        scheduler(); // Schedule tasks
+        //setUp(); // Set up unavailable hours
+        //taskAdd(1, "2025-01-31", 3, "Study", estimateTime("Study")); // Add a sample task
+        //scheduler(); // Schedule tasks
     }
 
     // Method to set up unavailable hours based on user input
