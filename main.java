@@ -5,7 +5,7 @@ public class main {
     static Map<Integer, ArrayList<Object>> taskList = new HashMap<>();
     static Map<String, Integer> weekHours = new HashMap<>();
     static int hoursAvailable = 24;
-	Queue<String> days = new LinkedList<>();
+	Queue<String> daysOfWeek = new PriorityQueue<String> ();
     static boolean grindset = false;
     static boolean[] available = new boolean[24]; // Represents 12 hours of availability
 
