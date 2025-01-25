@@ -52,8 +52,6 @@ public class main {
 
     // Method to schedule tasks
     public static void grindScheduler(Task curr) {
-
-        // Get the starting day
         
         // Loop backwards from the start day towards today (day 0)
         int start = 7 - curr.daysAway;
