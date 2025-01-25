@@ -5,31 +5,75 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color:#F98909;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/*Plan your week homescreen*/
+.homeHeading {
+  text-align: center;
+  margin-top: 15vh;
 }
 
-.navbar {
-  padding: 0.5rem 1rem;
-  font-size: 1.3rem;
+/* creates calendar on home page*/
+.week {
   display: flex;
-  justify-content: space-between;
+  height: 40vh;
+  margin-top: 10vh;
+  margin-left: 5vw;
+  margin-right: 5vw;
+}
+
+
+.day {
+  text-align: center;
   align-items: center;
-  background-color: #638a5e;
-  color: white;
+  font-weight: bold;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
+  
+  color: #F98909;
+  padding: 5px;
+  background-color: transparentize(white, 0.30);
+  box-shadow: 
+    -3px -3px #F9A440, 
+    inset -3px -3px 0 0 #F9A440;
 }
 
-.nav-links {
-  flex-direction: column;
-  margin-top: 1rem;
-  margin-right: 1rem;
-  display: none;
+.task {
+  padding: 0.6rem;
 }
 
-.nav-links li {
-  margin-left: 0;
-  margin-bottom: 0.5rem;
+.task ul {
+  padding: 0.2rem;
 }
+
+.task ul li{
+  padding: 0.3rem;
+  list-style-type: none;
+  align-self: center;
+  border-radius: 0.5rem;
+  background:rgb(255, 154, 77);
+  color:aliceblue;
+}
+
+.task ul li:hover {
+  background:#76cc90;
+  content: "Completed?";
+}
+
+/* submit button styling */
+.add-button {
+  margin-top: 4vh;
+  margin-left: 37.5vw;
+  position: center;
+  border-radius: 15px;
+  background-color: rgb(255, 154, 77);
+  color: #fff; 
+  font-size: 2rem;
+  width: 25vw;
+  height: 8vh;
+  cursor: pointer; 
+  border: none; 
+}
+

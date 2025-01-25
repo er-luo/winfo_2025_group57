@@ -118,15 +118,18 @@ public class Main {
 
 
     // Helper method to estimate time based on category
-    public static int estimateTime(String category) {
-        // TODO: Implement time estimation logic based on category
-        // Placeholder for now
-        return switch (category.toLowerCase()) {
-            case "study" -> 2;
-            case "work" -> 3;
-            case "exercise" -> 1;
-            default -> 2; // Default estimate
-        };
+    public static int estimateTime(Task curr) {
+        int est = 0;
+
+        if (curr.getCategory().equals("Exam") || curr.getCategory().equals("Project")) {
+            est = 3 * curr.getDifficulty();
+        } else if (curr.getCategory().equals("Quiz")) {
+            est = 2 * curr.getDifficulty();
+        } else if (curr.getCategory().equals("Assignment")) {
+            est = curr.getDifficulty();
+        }
+
+        return est;
     }
 
 	public 
