@@ -99,6 +99,13 @@ public class Main {
         daysOfWeek = newDays;
     }
 
+	// Print the current days of the week
+    public static void printDays() {
+        for (String day : daysOfWeek) {
+            System.out.println(day);
+        }
+    }
+
 	// Get today's day (e.g., "Monday", "Tuesday", etc.)
     public static String getToday() {
         LocalDate today = LocalDate.now();
