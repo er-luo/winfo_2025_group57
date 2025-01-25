@@ -4,8 +4,8 @@ public class main {
     // Global Variables
     static Map<Integer, ArrayList<Object>> taskList = new HashMap<>();
     static Map<String, Integer> weekHours = new HashMap<>();
-	static Queue<String> queue = new LinkedList<>();
     static int hoursAvailable = 24;
+    static boolean grindset = false;
     static boolean[] available = new boolean[24]; // Represents 12 hours of availability
 
     public static void main(String[] args) {
@@ -50,9 +50,26 @@ public class main {
     }
 
     // Method to schedule tasks
-    public static void scheduler() {
-        // TODO: Implement scheduling logic
-        System.out.println("Scheduling tasks...");
+    public static void grindScheduler(Task curr) {
+
+        // Get the starting day
+        
+        // Loop backwards from the start day towards today (day 0)
+        for (int i = curr.daysAway - 1; i >= 0; i--) {
+            String day = dayOfWeek(i);  // Convert the index to the day name (you can use your existing method)
+            int availableHours = weekHours.get(day);  // Get available hours for the day
+            
+            // Check if the current day has enough available hours for the task
+            if (availableHours >= curr.time) {
+                // If there are enough hours, subtract the time required for the task
+                weekHours.put(day, availableHours - curr.time);
+                System.out.println("Task scheduled on " + day + ". Remaining hours: " + (availableHours - curr.time));
+                return; // Task successfully scheduled, exit the method
+            }
+        }
+        
+        // If no day has enough available hours, print a message (scheduling failed)
+        System.out.println("Not enough available time to schedule the task.");
     }
 
     // Helper method to estimate time based on category
