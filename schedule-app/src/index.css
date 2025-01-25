@@ -62,13 +62,15 @@ body {
   content: "Completed?";
 }
 
+button {
+  border-radius: 0.5rem;
+  background-color: rgb(255, 154, 77);
+}
 /* submit button styling */
 .add-button {
   margin-top: 4vh;
   margin-left: 37.5vw;
   position: center;
-  border-radius: 15px;
-  background-color: rgb(255, 154, 77);
   color: #fff; 
   font-size: 2rem;
   width: 25vw;
@@ -77,3 +79,16 @@ body {
   border: none; 
 }
 
+/*pop up menu styling*/
+.modal {
+  width: 15vw;
+  padding: 2rem;
+  box-shadow: 
+    -3px -3px #F9A440, 
+    inset -3px -3px 0 0 #F9A440;
+  background-color: #fff;
+}
+
+.content {
+  padding-bottom: 2rem;
+}
