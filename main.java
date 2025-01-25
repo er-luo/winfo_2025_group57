@@ -13,9 +13,9 @@ public class Main {
         System.out.println("Welcome to Task Scheduler!");
 
         // Example usage:
-        setUp(); // Set up unavailable hours
-        taskAdd(1, "2025-01-31", 3, "Study", estimateTime("Study")); // Add a sample task
-        scheduler(); // Schedule tasks
+        //setUp(); // Set up unavailable hours
+        //taskAdd(1, "2025-01-31", 3, "Study", estimateTime("Study")); // Add a sample task
+        //scheduler(); // Schedule tasks
     }
 
     // Method to set up unavailable hours based on user input
@@ -43,14 +43,14 @@ public class Main {
     }
 
     // Method to add a new task
-    public static void taskAdd(int taskID, String dueDate, int difficulty, String category, int time) {
+    public static void taskAdd(String dueDate, String category, int difficulty, int time) {
         ArrayList<Object> newTask = new ArrayList<>();
         newTask.add(dueDate);
-        newTask.add(difficulty);
         newTask.add(category);
+        newTask.add(difficulty);
         newTask.add(time);
 
-        taskList.put(taskID, newTask);
+        taskList.put(taskList.size(), newTask);
         System.out.println("Task added: " + newTask);
     }
 
