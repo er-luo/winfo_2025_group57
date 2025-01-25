@@ -69,6 +69,7 @@ public class Main {
         System.out.println("Enter Task Difficulty (1 to 10):");
         int difficulty = scanner.nextInt();
 
+        // change later to our algorithm *
         System.out.println("Enter Time Required (in hours):");
         int time = scanner.nextInt();
 
