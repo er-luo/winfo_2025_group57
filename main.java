@@ -4,14 +4,16 @@ public class main {
     // Global Variables
     static Map<Integer, ArrayList<Object>> taskList = new HashMap<>();
     static Map<String, Integer> weekHours = new HashMap<>();
-    static int hoursAvailable = 24;
-	static Queue<String> daysOfWeek = new PriorityQueue<String> ();
+    static int hoursAvailable = 0;
+	static String[] daysOfWeek = new String[] {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
     static boolean grindset = false;
     static boolean[] available = new boolean[24]; // Represents 12 hours of availability
 
     public static void main(String[] args) {
         // Initialize application
         System.out.println("Welcome to Task Scheduler!");
+
+		initializeDays();
 
         setUp(); // Set up available hours
 
@@ -22,8 +24,6 @@ public class main {
 
     // Method to set up available hours based on user input
     public static void setUp() {
-        String[] daysOfWeek = {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
-        
         // Get user input for available hours
         // Update hoursAvailable and the 'available' array
         Scanner scanner = new Scanner(System.in);
@@ -79,6 +79,42 @@ public class main {
         System.out.println("Not enough available time to schedule the task.");
     }
 
+	// Initialize the array with days starting from today
+    public static void initializeDays() {
+        // Get today's day as a string
+        String today = getToday();
+
+        // Find today's index in the daysOfWeek array
+        int todayIndex = findTodayIndex(today);
+
+        // Shift the array to have today's day at the front
+        String[] newDays = new String[7];
+
+        for (int i = 0; i < 7; i++) {
+            newDays[i] = daysOfWeek[(todayIndex + i) % 7]; // Circular shift
+        }
+
+        daysOfWeek = newDays;
+    }
+
+	// Get today's day (e.g., "Monday", "Tuesday", etc.)
+    public static String getToday() {
+        LocalDate today = LocalDate.now();
+        DayOfWeek dayOfWeek = today.getDayOfWeek();  // Get today's day of the week
+        return dayOfWeek.toString();  // Return as a string (e.g., "MONDAY", "TUESDAY", etc.)
+    }
+
+	// Find the index of today's day in the daysOfWeek array
+    public static int findTodayIndex(String today) {
+        for (int i = 0; i < daysOfWeek.length; i++) {
+            if (daysOfWeek[i].equalsIgnoreCase(today)) {
+                return i;  // Return the index of today
+            }
+        }
+        return -1;
+    }
+
+
     // Helper method to estimate time based on category
     public static int estimateTime(String category) {
         // TODO: Implement time estimation logic based on category
@@ -90,6 +126,8 @@ public class main {
             default -> 2; // Default estimate
         };
     }
+
+	public 
 
     // Method to analyze completed tasks (data processing)
     public static void processData() {
