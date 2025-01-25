@@ -1,9 +1,9 @@
 import java.util.*;
-import java.util.Scanner;
 
 public class main {
     // Global Variables
     static Map<Integer, ArrayList<Object>> taskList = new HashMap<>();
+    static int[] weekHours = new int[7]; //week day
     static int hoursAvailable = 24;
     static boolean[] available = new boolean[24]; // Represents 12 hours of availability
 
@@ -21,23 +21,26 @@ public class main {
     public static void setUp() {
         // Get user input for unavailable hours
         // Update hoursAvailable and the 'available' array
+        
+        for (day : weekHours) {
+            // Gets start time and end time when user is unavailable
+            Scanner myObj = new Scanner(System.in);
+            System.out.println("Enter start time (0-23):");
+            int startTime = myObj.nextInt();
+            System.out.println("Enter end time (0-23):");
+            int endTime = myObj.nextInt();
 
-		// Gets start time and end time when user is unavailable
-		Scanner myObj = new Scanner(System.in);
-		System.out.println("Enter start time (0-23):");
-		int startTime = myObj.nextInt();
-        System.out.println("Enter end time (0-23):");
-        int endTime = myObj.nextInt();
 
-		for (int i = startTime; i < endTime; i++) {
-            if (available[i]) { 
-                available[i] = false;
-                hoursAvailable--;
+            for (int i = startTime; i < endTime; i++) {
+                if (available[i]) { 
+                    available[i] = false;
+                    hoursAvailable--;
+                }
             }
-        }
 
-		System.out.println("Blocked time from " + startTime + " to " + endTime);
-        System.out.println("Hours available: " + hoursAvailable);
+            System.out.println("Blocked time from " + startTime + " to " + endTime);
+            System.out.println("Hours available: " + hoursAvailable);
+        }
 		
     }
 
@@ -50,7 +53,7 @@ public class main {
         newTask.add(time);
 
         taskList.put(taskList.size(), newTask);
-        System.out.println("Task added: " + newTask);
+        // System.out.println("Task added: " + newTask);
     }
 
     // Method to schedule tasks
