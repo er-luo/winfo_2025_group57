@@ -4,19 +4,20 @@ import java.time.LocalDate;
 
 public class Main {
     // Global Variables
-    static Map<Integer, ArrayList<Object>> taskList = new HashMap<>();
-    static Map<String, Integer> weekHours = new HashMap<>();
-    static int hoursAvailable = 0;
+    static Map<String, Set<Task>> schedule = new HashMap<>(); //keys: days of week, val: list of tasks
+    static Set<Task> taskList = new HashSet<>(); //total list of all tasks
+    static Map<String, Integer> weekHours = new HashMap<>(); //hours per day to work
 	static String[] daysOfWeek = new String[] {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
-    static boolean grindset = false;
-    static boolean[] available = new boolean[24]; // Represents 12 hours of availability
-	static String[] categories = new String[] {"Exam", "Quiz", "Assignment", "Project"};
+    static boolean grindset = false; //study mode
+	static String[] categories = new String[] {"Exam", "Quiz", "Assignment", "Project"}; //types of tasks
 
     public static void main(String[] args) {
         // Initialize application
         System.out.println("Welcome to Task Scheduler!");
 
 		initializeDays();
+
+        initializeSchedule();
 
         setUp(); // Set up available hours
 
@@ -52,14 +53,14 @@ public class Main {
 
     // Method to add a new task
     public static void taskAdd(String dueDate, String category, int difficulty, int time) {
-        ArrayList<Object> newTask = new ArrayList<>();
-        newTask.add(dueDate);
-        newTask.add(category);
-        newTask.add(difficulty);
-        newTask.add(time);
-
-        taskList.put(taskList.size(), newTask);
-        // System.out.println("Task added: " + newTask);
+        Task newTask = new Task(taskList.size(), dueDate, category, difficulty, time);
+        taskList.add(newTask);
+        System.out.println("Task added: " + newTask);
+        if (grindset) {
+            grindScheduler(newTask);
+        } else {
+            //splitScheduler(newTask);
+        }
     }
 
     // Method to schedule tasks
@@ -72,6 +73,7 @@ public class Main {
             int availHours = weekHours.get(day);
             if (availHours >= curr.getTime()) {
                 weekHours.put(day, availHours - curr.getTime());
+                schedule.get(day).add(curr);
                 System.out.println("Task scheduled on " + day + ". Remaining hours: " + (availHours - curr.getTime()));
                 return; // Task successfully scheduled, exit the method
             }
@@ -79,6 +81,16 @@ public class Main {
         
         // If no day has enough available hours, print a message (scheduling failed)
         System.out.println("Not enough available time to schedule the task.");
+    }
+
+    // public static void splitScheduler(Task curr) {
+
+    // }
+
+    public static void initializeSchedule() {
+        for (String day : daysOfWeek) {
+            schedule.put(day, new HashSet<Task>());
+        }
     }
 
 	// Initialize the array with days starting from today
