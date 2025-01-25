@@ -81,8 +81,8 @@ public class Main {
     }
 
     // Method to add a new task
-    public static void taskAdd(String dueDate, String category, int difficulty, int time) {
-        Task newTask = new Task(taskList.size(), dueDate, category, difficulty, time);
+    public static void taskAdd(String dueDate, String name, String category, int difficulty, int time) {
+        Task newTask = new Task(taskList.size(), name, dueDate, category, difficulty, time);
         taskList.add(newTask);
         System.out.println("Task added: " + newTask);
         if (grindset) {
