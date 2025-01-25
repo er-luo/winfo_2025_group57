@@ -1,30 +1,66 @@
-taskList = Map(taskID, arrayList(dueDate, difficulty, category, time))
-hoursAvailable = 12
-boolean [] available = new int[12];
+import java.util.*;
 
-	// user blocks out time that is unavailable
-	setUp()
-		getUserInput(startTime, endTime, event)
-		hours = calculate(startTime, endTime)
-		hoursAvailable - hours
-		// mark hours in available array as false
+public class Main {
 
-	//user add a new task
-taskAdd (dueDate, difficulty, category, time = est(category))
-		new list (dueDate, difficulty, category, time)		
-		
-map[taskID, newList]
+    // Global Variables
+    static Map<Integer, ArrayList<Integer>> taskList = new HashMap<>();
+    static int hoursAvailable = 12;
+    static boolean[] available = new boolean[12]; // Represents 12 hours of availability
 
-scheduler();
+    public static void main(String[] args) {
+        // Initialize application
+        System.out.println("Welcome to Task Scheduler!");
 
-//needs task, schedule, helper function for estimating time completion
-//scheduler() {
+        // Example usage:
+        //setUp(); // Set up unavailable hours
+        //taskAdd(1, "2025-01-31", 3, "Study", estimateTime("Study")); // Add a sample task
+        //scheduler(); // Schedule tasks
+    }
 
+    // Method to set up unavailable hours based on user input
+    public static void setUp() {
+        // TODO: Get user input for unavailable hours
+        // Update hoursAvailable and the 'available' array
+    }
 
-//estimates time it will take a task to complete- needs to store history somehow? 
-timeEstimate(dueDate, time, Category)
+    // Method to add a new task
+    public static void taskAdd(int taskID, String dueDate, int difficulty, String category, int time) {
+        ArrayList<Object> newTask = new ArrayList<>();
+        newTask.add(dueDate);
+        newTask.add(difficulty);
+        newTask.add(category);
+        newTask.add(time);
 
-//method to process data once it is completed- data analysis
+        taskList.put(taskID, newTask);
+        System.out.println("Task added: " + newTask);
+    }
 
-//remindres
+    // Method to schedule tasks
+    public static void scheduler() {
+        // TODO: Implement scheduling logic
+        System.out.println("Scheduling tasks...");
+    }
+
+    // Helper method to estimate time based on category
+    public static int estimateTime(String category) {
+        // TODO: Implement time estimation logic based on category
+        // Placeholder for now
+        return switch (category.toLowerCase()) {
+            case "study" -> 2;
+            case "work" -> 3;
+            case "exercise" -> 1;
+            default -> 2; // Default estimate
+        };
+    }
+
+    // Method to analyze completed tasks (data processing)
+    public static void processData() {
+        // TODO: Implement logic to process and analyze task completion data
+    }
+
+    // Method to handle reminders
+    public static void reminders() {
+        // TODO: Implement reminder notifications
+    }
+}
 
