@@ -56,6 +56,7 @@ public class Main {
 
     public static void promptUserTask() {
         Scanner scanner = new Scanner(System.in);
+        scanner.nextLine();
 
         System.out.println("Enter name of task: ");
         String name = scanner.nextLine();
