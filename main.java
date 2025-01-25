@@ -54,7 +54,7 @@ public class Main {
         scanner.close();
     }
 
-    public static Task promptUserTask() {
+    public static void promptUserTask() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Enter name of task: ");
@@ -70,14 +70,12 @@ public class Main {
         int difficulty = scanner.nextInt();
 
         // change later to our algorithm *
-        System.out.println("Enter Time Required (in hours):");
-        int time = scanner.nextInt();
+        // System.out.println("Enter Time Required (in hours):");
+        // int time = scanner.nextInt();
 
         // Create and return the Task object
-        Task newTask = new Task(taskList.size(), name, dueDate, category, difficulty, time);
-
+        taskAdd(dueDate, name, category, difficulty, 0);
         scanner.close();
-        return newTask;
     }
 
     // Method to add a new task
