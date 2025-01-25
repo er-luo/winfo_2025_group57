@@ -74,7 +74,7 @@ public class Main {
         int time = scanner.nextInt();
 
         // Create and return the Task object
-        Task newTask = new Task(name, taskList.size(), dueDate, category, difficulty, time);
+        Task newTask = new Task(taskList.size(), name, dueDate, category, difficulty, time);
 
         scanner.close();
         return newTask;

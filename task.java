@@ -7,7 +7,7 @@ public class Task {
     private int difficulty, time;
     private final int taskID;
     
-    public Task (String name, int taskID, String dueDate, String category, int difficulty, int time) {
+    public Task (int taskID, String name, String dueDate, String category, int difficulty, int time) {
         this.name = name;
         this.taskID = taskID;
         this.dueDate = dueDate;
