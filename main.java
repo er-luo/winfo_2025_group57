@@ -66,7 +66,7 @@ public class Main {
         System.out.println("Enter Task Category (e.g., Exam, Assignment, Quiz, Project):");
         String category = scanner.nextLine();
 
-        System.out.println("Enter Task Difficulty (1 to 10):");
+        System.out.println("Enter Task Difficulty (1 to 3):");
         int difficulty = scanner.nextInt();
 
         // change later to our algorithm *
