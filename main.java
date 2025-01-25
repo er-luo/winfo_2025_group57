@@ -4,7 +4,7 @@ public class main {
     // Global Variables
     static Map<Integer, ArrayList<Object>> taskList = new HashMap<>();
     static Map<String, Integer> weekHours = new HashMap<>();
-    static int hoursAvailable = 24;
+    static int hoursAvailable = 0;
 	static String[] daysOfWeek = new String[] {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
     static boolean grindset = false;
     static boolean[] available = new boolean[24]; // Represents 12 hours of availability
