@@ -132,16 +132,14 @@ public class Main {
         return est;
     }
 
-	public 
-
     // Method to analyze completed tasks (data processing)
-    public static void processData() {
-        // TODO: Implement logic to process and analyze task completion data
-    }
+    // public static void processData() {
+    //     // TODO: Implement logic to process and analyze task completion data
+    // }
 
     // Method to handle reminders
-    public static void reminders() {
-        // TODO: Implement reminder notifications
-    }
+    // public static void reminders() {
+    //     // TODO: Implement reminder notifications
+    // }
 }
 
