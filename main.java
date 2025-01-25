@@ -23,18 +23,20 @@ public class main {
         // Update hoursAvailable and the 'available' array
 
 		// Gets start time and end time when user is unavailable
-		Scanner myObj = new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter start time (0-23):");
-		int startTime = myObj.nextInt();
+		int startTime = scanner.nextInt();
         System.out.println("Enter end time (0-23):");
-        int endTime = myObj.nextInt();
+        int endTime = scanner.nextInt();
 
 		for (int i = startTime; i < endTime; i++) {
-            if (available[i]) { 
+            if (available[i]) {
                 available[i] = false;
                 hoursAvailable--;
             }
         }
+
+		scanner.close();
 
 		System.out.println("Blocked time from " + startTime + " to " + endTime);
         System.out.println("Hours available: " + hoursAvailable);
