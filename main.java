@@ -16,14 +16,13 @@ public class Main {
         System.out.println("Welcome to Task Scheduler!");
 
 		initializeDays();
-		//printDays();
-
         initializeSchedule();
-
+		//printDays();
         setUp(); // Set up available hours
 
-        //taskAdd(1, "2025-01-31", 3, "Study", estimateTime("Study")); // Add a sample task
-        //scheduler(); // Schedule tasks
+        //testadd
+        promptUserTask();
+
     }
 
     // Method to set up available hours based on user input
