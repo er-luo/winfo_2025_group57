@@ -2,7 +2,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
-public class Task {
+public class task {
     private String dueDate, category;
     private int difficulty, time, taskID;
     
