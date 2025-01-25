@@ -19,7 +19,6 @@ public class Main {
 
         setUp(); // Set up available hours
 
-        // Example usage:
         //taskAdd(1, "2025-01-31", 3, "Study", estimateTime("Study")); // Add a sample task
         //scheduler(); // Schedule tasks
     }
