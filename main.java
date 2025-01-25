@@ -1,10 +1,11 @@
 import java.util.*;
+import java.util.Scanner;
 
 public class Main {
     // Global Variables
     static Map<Integer, ArrayList<Object>> taskList = new HashMap<>();
-    static int hoursAvailable = 12;
-    static boolean[] available = new boolean[12]; // Represents 12 hours of availability
+    static int hoursAvailable = 24;
+    static boolean[] available = new boolean[24]; // Represents 12 hours of availability
 
     public static void main(String[] args) {
         // Initialize application
@@ -18,8 +19,26 @@ public class Main {
 
     // Method to set up unavailable hours based on user input
     public static void setUp() {
-        // TODO: Get user input for unavailable hours
+        // Get user input for unavailable hours
         // Update hoursAvailable and the 'available' array
+
+		// Gets start time and end time when user is unavailable
+		Scanner myObj = new Scanner(System.in);
+		System.out.println("Enter start time (0-23):");
+		int startTime = myObj.nextInt();
+        System.out.println("Enter end time (0-23):");
+        int endTime = myObj.nextInt();
+
+		for (int i = startTime; i < endTime; i++) {
+            if (available[i]) { 
+                available[i] = false;
+                hoursAvailable--;
+            }
+        }
+
+		System.out.println("Blocked time from " + startTime + " to " + endTime);
+        System.out.println("Hours available: " + hoursAvailable);
+		
     }
 
     // Method to add a new task
