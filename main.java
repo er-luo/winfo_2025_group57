@@ -1,9 +1,9 @@
 import java.util.*;
-import java.util.Scanner;
 
 public class main {
     // Global Variables
     static Map<Integer, ArrayList<Object>> taskList = new HashMap<>();
+    static int[] weekHours = new int[7]; //week day
     static int hoursAvailable = 24;
     static boolean[] available = new boolean[24]; // Represents 12 hours of availability
 
@@ -21,27 +21,46 @@ public class main {
     public static void setUp() {
         // Get user input for unavailable hours
         // Update hoursAvailable and the 'available' array
+        Scanner scanner = new Scanner(System.in);
+        for (int day : weekHours) {
+            // Gets start time and end time when user is available
+			String nameDay = dayOfWeek(day);
+            System.out.println("Enter start time (0-23) for " + nameDay);
+            int startTime = scanner.nextInt();
+            System.out.println("Enter end time (0-23):");
+            int endTime = scanner.nextInt();
 
-		// Gets start time and end time when user is unavailable
-		Scanner scanner = new Scanner(System.in);
-		System.out.println("Enter start time (0-23):");
-		int startTime = scanner.nextInt();
-        System.out.println("Enter end time (0-23):");
-        int endTime = scanner.nextInt();
-
-		for (int i = startTime; i < endTime; i++) {
-            if (available[i]) {
-                available[i] = false;
-                hoursAvailable--;
+            for (int i = startTime; i < endTime; i++) {
+                if (available[i]) { 
+                    available[i] = false;
+                    hoursAvailable--;
+                }
             }
-        }
 
-		scanner.close();
+			scanner.close();
+		}
 
 		System.out.println("Blocked time from " + startTime + " to " + endTime);
         System.out.println("Hours available: " + hoursAvailable);
 		
     }
+
+	public static String dayOfWeek(int nameOfDay) {
+		if(nameDay == 0) {
+			return "Sunday";
+		} else if(nameDay == 1) {
+			return "Monday";
+		} else if(nameDay == 2) {
+			return "Tuesday";
+		} else if(nameDay == 3) {
+			return "Wednesday";
+		} else if(nameDay == 4) {
+			return "Thursday";
+		} else if(nameDay == 5) {
+			return "Friday";
+		} 
+		return "Saturday";
+	}
 
     // Method to add a new task
     public static void taskAdd(String dueDate, String category, int difficulty, int time) {
@@ -52,7 +71,7 @@ public class main {
         newTask.add(time);
 
         taskList.put(taskList.size(), newTask);
-        System.out.println("Task added: " + newTask);
+        // System.out.println("Task added: " + newTask);
     }
 
     // Method to schedule tasks
