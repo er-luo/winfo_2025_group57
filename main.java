@@ -24,6 +24,7 @@ public class main {
         
         for (day : weekHours) {
             // Gets start time and end time when user is unavailable
+            
             Scanner myObj = new Scanner(System.in);
             System.out.println("Enter start time (0-23):");
             int startTime = myObj.nextInt();
