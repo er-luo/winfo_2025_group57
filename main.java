@@ -12,14 +12,14 @@ public class main {
         System.out.println("Welcome to Task Scheduler!");
 
         // Example usage:
-        //setUp(); // Set up unavailable hours
+        //setUp(); // Set up available hours
         //taskAdd(1, "2025-01-31", 3, "Study", estimateTime("Study")); // Add a sample task
         //scheduler(); // Schedule tasks
     }
 
-    // Method to set up unavailable hours based on user input
+    // Method to set up available hours based on user input
     public static void setUp() {
-        // Get user input for unavailable hours
+        // Get user input for available hours
         // Update hoursAvailable and the 'available' array
         Scanner scanner = new Scanner(System.in);
         for (int day : weekHours) {
