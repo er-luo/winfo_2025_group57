@@ -1,9 +1,8 @@
 import java.util.*;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
-import Task.java;
 
-public class main {
+public class Main {
     // Global Variables
     static Map<Integer, ArrayList<Object>> taskList = new HashMap<>();
     static Map<String, Integer> weekHours = new HashMap<>();
@@ -67,13 +66,13 @@ public class main {
     public static void grindScheduler(Task curr) {
 
         // Loop backwards from the start day towards today (day 0)
-        int start = 7 - curr.daysAway;
+        int start = 7 - curr.daysAway();
         for (int i = start; i <= 6; i++) {
             String day = daysOfWeek[i];
             int availHours = weekHours.get(day);
-            if (availHours >= curr.time) {
-                weekHours.put(day, availHours - curr.time);
-                System.out.println("Task scheduled on " + day + ". Remaining hours: " + (availHours - curr.time));
+            if (availHours >= curr.getTime()) {
+                weekHours.put(day, availHours - curr.getTime());
+                System.out.println("Task scheduled on " + day + ". Remaining hours: " + (availHours - curr.getTime()));
                 return; // Task successfully scheduled, exit the method
             }
         }
