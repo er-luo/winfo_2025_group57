@@ -1,7 +1,7 @@
 import java.util.*;
 import java.util.Scanner;
 
-public class Main {
+public class main {
     // Global Variables
     static Map<Integer, ArrayList<Object>> taskList = new HashMap<>();
     static int hoursAvailable = 24;
