@@ -30,6 +30,16 @@ public class main {
         // Update hoursAvailable and the 'available' array
         Scanner scanner = new Scanner(System.in);
 
+        int habitCheck = -1;
+        while (habitCheck != 0 || habitCheck != 1) {
+            System.out.println("Do you prefer splitting up your study hours(0) or grinding it out(1)?");
+            habitCheck = scanner.nextInt();
+        }
+        
+        if (habitCheck == 1) {
+            grindset = true;
+        }
+
         for (String day : daysOfWeek) {
             System.out.println("How many hours can you work on " + day + "?");
             int hoursAvailable = scanner.nextInt();
@@ -54,7 +64,7 @@ public class main {
 
     // Method to schedule tasks
     public static void grindScheduler(Task curr) {
-        
+
         // Loop backwards from the start day towards today (day 0)
         int start = 7 - curr.daysAway;
         for (int i = start; i <= 6; i++) {
