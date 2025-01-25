@@ -3,7 +3,7 @@ import java.util.*;
 public class Main {
 
     // Global Variables
-    static Map<Integer, ArrayList<Integer>> taskList = new HashMap<>();
+    static Map<Integer, ArrayList<Object>> taskList = new HashMap<>();
     static int hoursAvailable = 12;
     static boolean[] available = new boolean[12]; // Represents 12 hours of availability
 
@@ -24,14 +24,14 @@ public class Main {
     }
 
     // Method to add a new task
-    public static void taskAdd(int taskID, String dueDate, int difficulty, String category, int time) {
+    public static void taskAdd(String dueDate, String category, int difficulty, int time) {
         ArrayList<Object> newTask = new ArrayList<>();
         newTask.add(dueDate);
-        newTask.add(difficulty);
         newTask.add(category);
+        newTask.add(difficulty);
         newTask.add(time);
 
-        taskList.put(taskID, newTask);
+        taskList.put(taskList.size(), newTask);
         System.out.println("Task added: " + newTask);
     }
 
