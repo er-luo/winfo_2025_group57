@@ -10,6 +10,7 @@ public class Main {
 	static String[] daysOfWeek = new String[] {"Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"};
     static boolean grindset = false;
     static boolean[] available = new boolean[24]; // Represents 12 hours of availability
+	static String[] categories = new String[] {"Exam", "Quiz", "Assignment", "Project"};
 
     public static void main(String[] args) {
         // Initialize application
@@ -64,7 +65,7 @@ public class Main {
     // Method to schedule tasks
     public static void grindScheduler(Task curr) {
 
-        // Loop backwards from the start day towards today (day 0)
+        // Loop forwards from the today
         int start = 7 - curr.daysAway();
         for (int i = start; i <= 6; i++) {
             String day = daysOfWeek[i];
