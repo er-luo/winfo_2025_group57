@@ -50,7 +50,33 @@ public class Main {
             // Update the weekHours map
             weekHours.put(day, hoursAvailable);
         }
+
         scanner.close();
+    }
+
+    public static Task promptUserTask() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter name of task: ");
+        String name = scanner.nextLine();
+
+        System.out.println("Enter Due Date (e.g., DD:MM:YYYY):");
+        String dueDate = scanner.nextLine();
+
+        System.out.println("Enter Task Category (e.g., Exam, Assignment, Quiz, Project):");
+        String category = scanner.nextLine();
+
+        System.out.println("Enter Task Difficulty (1 to 10):");
+        int difficulty = scanner.nextInt();
+
+        System.out.println("Enter Time Required (in hours):");
+        int time = scanner.nextInt();
+
+        // Create and return the Task object
+        Task newTask = new Task(name, taskList.size(), dueDate, category, difficulty, time);
+
+        scanner.close();
+        return newTask;
     }
 
     // Method to add a new task
