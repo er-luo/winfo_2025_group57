@@ -56,15 +56,13 @@ public class main {
         // Get the starting day
         
         // Loop backwards from the start day towards today (day 0)
-        for (int i = curr.daysAway - 1; i >= 0; i--) {
-            String day = dayOfWeek(i);  // Convert the index to the day name (you can use your existing method)
-            int availableHours = weekHours.get(day);  // Get available hours for the day
-            
-            // Check if the current day has enough available hours for the task
-            if (availableHours >= curr.time) {
-                // If there are enough hours, subtract the time required for the task
-                weekHours.put(day, availableHours - curr.time);
-                System.out.println("Task scheduled on " + day + ". Remaining hours: " + (availableHours - curr.time));
+        int start = 7 - curr.daysAway;
+        for (int i = start; i <= 6; i++) {
+            String day = daysOfWeek[i]
+            int availHours = weekHours.get(day);
+            if (availHours >= curr.time) {
+                weekHours.put(day, availHours - curr.time);
+                System.out.println("Task scheduled on " + day + ". Remaining hours: " + (availHours - curr.time));
                 return; // Task successfully scheduled, exit the method
             }
         }
