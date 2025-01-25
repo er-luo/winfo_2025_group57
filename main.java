@@ -31,7 +31,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         int habitCheck = -1;
-        while (habitCheck != 0 || habitCheck != 1) {
+        while ((habitCheck != 0) && (habitCheck != 1)) {
             System.out.println("Do you prefer splitting up your study hours(0) or grinding it out(1)?");
             habitCheck = scanner.nextInt();
         }
