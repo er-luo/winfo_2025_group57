@@ -30,6 +30,9 @@ public class main {
             System.out.println("Enter end time (0-23):");
             int endTime = scanner.nextInt();
 
+            System.out.println("Blocked time from " + startTime + " to " + endTime);
+            System.out.println("Hours available: " + hoursAvailable);
+
             for (int i = startTime; i < endTime; i++) {
                 if (available[i]) { 
                     available[i] = false;
@@ -40,12 +43,10 @@ public class main {
 			scanner.close();
 		}
 
-		System.out.println("Blocked time from " + startTime + " to " + endTime);
-        System.out.println("Hours available: " + hoursAvailable);
 		
     }
 
-	public static String dayOfWeek(int nameOfDay) {
+	public static String dayOfWeek(int nameDay) {
 		if(nameDay == 0) {
 			return "Sunday";
 		} else if(nameDay == 1) {
