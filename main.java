@@ -1,7 +1,6 @@
 import java.util.*;
 
 public class Main {
-
     // Global Variables
     static Map<Integer, ArrayList<Object>> taskList = new HashMap<>();
     static int hoursAvailable = 12;
