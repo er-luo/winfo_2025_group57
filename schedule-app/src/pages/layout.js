@@ -1,24 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Calendar from "./calendar";
+
 
 function Layout(props) {
 
   return (
     <>
-      <nav className="navbar">
-        ScheduleApp
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/blogs">Blogs</Link>
-          </li>
-          <li>
-            <Link to="/contact">Contact</Link>
-          </li>
-        </ul>
-      </nav>
+      <div className="homeHeading"><h1>Plan your week ☆⌒(≧▽​° ) </h1></div>
+      <Calendar/>
+      <button type="submit" className="add-button" > + Add a Task</button>
 
     </>
   );
