@@ -45,7 +45,7 @@ public class main {
 		
     }
 
-	public static String dayOfWeek(int nameOfDay) {
+	public static String dayOfWeek(int nameDay) {
 		if(nameDay == 0) {
 			return "Sunday";
 		} else if(nameDay == 1) {
