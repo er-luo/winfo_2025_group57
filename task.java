@@ -4,7 +4,8 @@ import java.time.temporal.ChronoUnit;
 
 public class Task {
     private String dueDate, category;
-    private int difficulty, time, taskID;
+    private int difficulty, time;
+    private final int taskID;
     
     public Task (int taskID, String dueDate, String category, int difficulty, int time) {
         this.taskID = taskID;

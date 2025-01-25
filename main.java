@@ -1,6 +1,6 @@
-import java.util.*;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.util.*;
 
 public class Main {
     // Global Variables
@@ -16,6 +16,7 @@ public class Main {
         System.out.println("Welcome to Task Scheduler!");
 
 		initializeDays();
+		printDays();
 
         initializeSchedule();
 
@@ -43,7 +44,7 @@ public class Main {
 
         for (String day : daysOfWeek) {
             System.out.println("How many hours can you work on " + day + "?");
-            int hoursAvailable = scanner.nextInt();
+            hoursAvailable = scanner.nextInt();
     
             // Update the weekHours map
             weekHours.put(day, hoursAvailable);
