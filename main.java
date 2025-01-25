@@ -42,6 +42,7 @@ public class Main {
             grindset = true;
         }
 
+        int hoursAvailable = 0;
         for (String day : daysOfWeek) {
             System.out.println("How many hours can you work on " + day + "?");
             hoursAvailable = scanner.nextInt();
