@@ -1,12 +1,30 @@
 import React, { useState } from 'react';
 import Popup from 'reactjs-popup';
+import axios from "axios";
 
 
 export default function PopUp() {
-    const [seen, setSeen] = useState(false)
+    const [task, setTask] = useState({
+        name: "",
+        dueDate: "",
+        category: "exam",
+        difficulty: 1,
+    });
 
-    function togglePop () {
-        setSeen(!seen);
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setTask({ ...task, [name]: value });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axios.post("http://localhost:8080/api/tasks", task).then((response) => {
+                console.log(response.status, response.data);
+            });;
+        } catch (error) {
+            console.error("Error adding task:", error);
+        }
     };
 
     return (
@@ -16,16 +34,14 @@ export default function PopUp() {
                     close => (
                         <div className='modal'>
                             <div className='content'>
-                            <form>
+                            <form onSubmit={handleSubmit}>
                                 <h2>Create New Task:</h2>
                                 <label>
                                     Task Name
-                                      <input
-                                          type="text"
-                                      />
+                                      <input type="text" name="name" onChange={handleChange} required/>
                                   </label><br/>
                                   <label for="category">What type of task is this?</label>
-                                  <select id="category" name="category">
+                                  <select id="category" name="category" onChange={handleChange}>
                                     <option value="exam">Exam</option>
                                     <option value="quiz">Quiz</option>
                                     <option value="assignment">Assignment</option>
@@ -33,17 +49,17 @@ export default function PopUp() {
                                   </select>
                                   <br/>
                                   <label for="difficulty">How hard is this for you?</label>
-                                  <select id="difficulty" name="difficulty">
+                                  <select id="difficulty" name="difficulty" onChange={handleChange}>
                                     <option value="1">1 (Easy)</option>
                                     <option value="2">2</option>
                                     <option value="3">3 (Difficult)</option>
                                   </select><br/>
                                   <label for="dueDate">When is this due?</label>
-                                  <input type="date" id="dueDate" name="dueDate"></input>
+                                  <input type="date" id="dueDate" name="dueDate" onChange={handleChange} required />
                               </form>
                             </div>
                             <div>
-                                <button>Add</button>
+                                <button type="submit" >Add</button>
                                 <button onClick=
                                     {() => close()}>
                                         cancel
