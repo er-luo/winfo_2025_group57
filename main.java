@@ -98,10 +98,11 @@ public class Main {
         for (int i = start; i <= 6; i++) {
             String day = daysOfWeek[i];
             int availHours = weekHours.get(day);
-            if (availHours >= curr.getTime()) {
-                weekHours.put(day, availHours - curr.getTime());
+            int est = estimateTime(curr.getCategory(), curr.getDifficulty);
+            if (availHours >= est) {
+                weekHours.put(day, availHours - est);
                 schedule.get(day).add(curr);
-                System.out.println("Task scheduled on " + day + ". Remaining hours: " + (availHours - curr.getTime()));
+                System.out.println("Task scheduled on " + day + ". Remaining hours: " + (availHours - est));
                 return; // Task successfully scheduled, exit the method
             }
         }
