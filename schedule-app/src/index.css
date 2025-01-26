@@ -68,7 +68,13 @@ body {
 button {
   border-radius: 0.5rem;
   background-color: #F98909;
+  box-shadow: 5px 10px #888888;
 }
+
+button:hover {
+  box-shadow: none;
+}
+
 /* submit button styling */
 .add-button {
   margin-top: 4vh;
