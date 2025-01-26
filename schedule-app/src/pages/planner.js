@@ -7,7 +7,7 @@ function Layout(props) {
   return (
     <>
       <div className="homeHeading"><h1>Plan your week ☆⌒(≧▽​° ) </h1></div>
-      <Link to="/stats">View past tasks</Link>
+      <div className="centered-container "><Link to="/stats">View Stats 📊</Link></div>
       <Calendar/>
       <Popup/>
     </>

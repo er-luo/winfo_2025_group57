@@ -20,9 +20,8 @@ a:hover {
   color:#76cc90;
 }
 
-.container {
-  align-items: center;
-  margin: 20vw;
+.centered-container {
+  text-align: center;
 }
 
 /*Plan your week homescreen*/
@@ -129,4 +128,14 @@ button:hover {
 
 .content {
   padding-bottom: 2rem;
+}
+
+/* stats page*/
+
+.stats {
+  margin-top: 1.4rem;
+}
+
+.stats ul{
+  list-style-type: none;
 }
