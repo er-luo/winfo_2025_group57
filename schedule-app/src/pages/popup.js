@@ -59,7 +59,7 @@ export default function PopUp() {
                               </form>
                             </div>
                             <div>
-                                <button type="submit" onClick={() => close()}>Add</button>
+                                <button type="submit" >Add</button>
                                 <button onClick=
                                     {() => close()}>
                                         cancel
