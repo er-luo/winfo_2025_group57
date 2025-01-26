@@ -57,7 +57,7 @@ public class Main {
         System.out.println("Enter name of task: ");
         String name = scanner.nextLine();
 
-        System.out.println("Enter Due Date (e.g., DD-MM-YYYY): ");
+        System.out.println("Enter Due Date (e.g., MM-DD-YYYY): ");
         String dueDate = scanner.nextLine();
 
         System.out.println("Enter Task Category (e.g., Exam, Assignment, Quiz, Project):");
