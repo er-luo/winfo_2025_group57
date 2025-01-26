@@ -19,7 +19,7 @@ export default function PopUp() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("http://localhost:8080/api/tasks/add", task).then((response) => {
+            const response = await axios.post("http://localhost:8080/api/tasks", task).then((response) => {
                 console.log(response.status, response.data);
             });;
         } catch (error) {
