@@ -50,7 +50,7 @@ public class Main {
             weekHours.put(day, hoursAvailable);
         }
 
-        scanner.close();
+        // scanner.close();
     }
 
     public static void promptUserTask() {
