@@ -8,3 +8,9 @@ Problem Statement: Students with ADHD often struggle to understand when to work 
 Solution: Our Automated Scheduler is designed to address these challenges by tailoring schedules to individual needs. By providing key inputs—such as due dates, task difficulty, estimated time required, and category of work—the app dynamically generates an optimized schedule. This ensures students can stay on track, balance their workload, and focus on achieving their goals.
 
 Back-end Demo Link: https://drive.google.com/file/d/1IZn1fLKaFpqfKG3afPBSY0j8ZCR8QF2U/view?usp=sharing
+
+Current Status: 
+- Built base algorithms for determining optimal scheduling in Java
+- Created WebApp in HTML using React
+- No teammates have experience with server-side, we utilized AI to assist with connecting the back and front ends. However, we were unsuccesful in connecting the pieces together.
+- We are proud of both pieces of work we have created for this project, and would love to translate it to a fully functional app after learning more about that type of development.
