@@ -24,6 +24,7 @@ public class Main {
 
         //testadd
         promptUserTask(scanner);
+        printSchedule();
         scanner.close();
     }
 
@@ -178,6 +179,33 @@ public class Main {
 
         return est;
     }
+
+    public static void printSchedule() {
+        if (schedule.isEmpty()) {
+            System.out.println("The schedule is currently empty.");
+            return;
+        }
+
+        System.out.println("Schedule Contents:");
+        for (Map.Entry<String, Set<Task>> entry : schedule.entrySet()) {
+            String day = entry.getKey();
+            Set<Task> tasks = entry.getValue();
+
+            System.out.println("\nDay: " + day);
+            if (tasks.isEmpty()) {
+                System.out.println("  No tasks scheduled.");
+            } else {
+                for (Task task : tasks) {
+                    System.out.println("  - Task ID: " + task.getTaskID() +
+                                    ", Name: " + task.getCategory() +
+                                    ", Due Date: " + task.getDueDate() +
+                                    ", Difficulty: " + task.getDifficulty() +
+                                    ", Estimated Time: " + estimateTime(task.getCategory(), task.getDifficulty()) + " hours");
+                }
+            }
+        }
+    }
+
 
     // Method to analyze completed tasks (data processing)
     // public static void processData() {
