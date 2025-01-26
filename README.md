@@ -7,4 +7,4 @@ Problem Statement: Students with ADHD often struggle to understand when to work 
 
 Solution: Our Automated Scheduler is designed to address these challenges by tailoring schedules to individual needs. By providing key inputs—such as due dates, task difficulty, estimated time required, and category of work—the app dynamically generates an optimized schedule. This ensures students can stay on track, balance their workload, and focus on achieving their goals.
 
-Demo Link: https://drive.google.com/file/d/1IZn1fLKaFpqfKG3afPBSY0j8ZCR8QF2U/view?usp=sharing
+Back-end Demo Link: https://drive.google.com/file/d/1IZn1fLKaFpqfKG3afPBSY0j8ZCR8QF2U/view?usp=sharing
