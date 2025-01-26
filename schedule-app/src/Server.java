@@ -40,9 +40,9 @@ public class Server {
                 response = "Task added successfully!";
                 exchange.sendResponseHeaders(200, response.getBytes().length);
             } else {
-                // Handle any other HTTP methods (e.g., GET)
+                // Handle any other HTTP 
                 response = "Invalid request method!";
-                exchange.sendResponseHeaders(405, response.getBytes().length); // Method Not Allowed
+                exchange.sendResponseHeaders(405, response.getBytes().length); // Not Allowed
             }
 
             // Send the response
@@ -59,7 +59,7 @@ public class Server {
             String category = requestBody.getString("category");
             int difficulty = requestBody.getInt("difficulty");
 
-            // Add the task (use the taskAdd method from your main code)
+            // Add the task (use the taskAdd method from main)
             taskAdd(dueDate, name, category, difficulty);
         }
     }
