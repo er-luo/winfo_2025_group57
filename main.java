@@ -55,7 +55,6 @@ public class Main {
 
     public static void promptUserTask() {
         Scanner scanner = new Scanner(System.in);
-        scanner.nextLine();
 
         System.out.println("Enter name of task: ");
         String name = scanner.nextLine();
@@ -68,6 +67,8 @@ public class Main {
 
         System.out.println("Enter Task Difficulty (1 to 3):");
         int difficulty = scanner.nextInt();
+
+        scanner.nextLine();
 
         // change later to our algorithm *
         // System.out.println("Enter Time Required (in hours):");
