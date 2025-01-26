@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/winfo_2025_group57/static/css/main.919b176c.css",
+    "main.js": "/winfo_2025_group57/static/js/main.396b9cf1.js",
+    "index.html": "/winfo_2025_group57/index.html",
+    "main.919b176c.css.map": "/winfo_2025_group57/static/css/main.919b176c.css.map",
+    "main.396b9cf1.js.map": "/winfo_2025_group57/static/js/main.396b9cf1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.919b176c.css",
+    "static/js/main.396b9cf1.js"
+  ]
+}
