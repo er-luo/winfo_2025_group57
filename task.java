@@ -3,16 +3,21 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
 public class Task {
-    private String dueDate, category;
+    private String dueDate, category, name;
     private int difficulty, time;
     private final int taskID;
     
-    public Task (int taskID, String dueDate, String category, int difficulty, int time) {
+    public Task (int taskID, String name, String dueDate, String category, int difficulty, int time) {
+        this.name = name;
         this.taskID = taskID;
         this.dueDate = dueDate;
         this.category = category;
         this.difficulty = difficulty;
         this.time = time;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getTaskID() {
@@ -54,7 +59,7 @@ public class Task {
     // days away
     public int daysAway() {
         // Define the date format of dueDate
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-dd-yyyy");
 
         // Parse dueDate into a LocalDate
         LocalDate dueDateParsed = LocalDate.parse(dueDate, formatter);

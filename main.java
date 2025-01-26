@@ -15,23 +15,23 @@ public class Main {
         // Initialize application
         System.out.println("Welcome to Task Scheduler!");
 
+        Scanner scanner = new Scanner(System.in);
+
 		initializeDays();
-		printDays();
-
         initializeSchedule();
+		//printDays();
+        setUp(scanner); // Set up available hours
 
-        setUp(); // Set up available hours
-
-        //taskAdd(1, "2025-01-31", 3, "Study", estimateTime("Study")); // Add a sample task
-        //scheduler(); // Schedule tasks
+        //testadd
+        promptUserTask(scanner);
+        scanner.close();
     }
 
     // Method to set up available hours based on user input
-    public static void setUp() {
+    public static void setUp(Scanner scanner) {
         // Get user input for available hours
         // Update hoursAvailable and the 'available' array
-        Scanner scanner = new Scanner(System.in);
-
+        
         int habitCheck = -1;
         while ((habitCheck != 0) && (habitCheck != 1)) {
             System.out.println("Do you prefer splitting up your study hours(0) or grinding it out(1)?");
@@ -50,12 +50,37 @@ public class Main {
             // Update the weekHours map
             weekHours.put(day, hoursAvailable);
         }
-        scanner.close();
+    }
+
+    public static void promptUserTask(Scanner scanner) {
+        scanner.nextLine();
+        System.out.println("Enter name of task: ");
+        String name = scanner.nextLine();
+
+        System.out.println("Enter Due Date (e.g., MM-DD-YYYY): ");
+        String dueDate = scanner.nextLine();
+
+        System.out.println("Enter Task Category (e.g., Exam, Assignment, Quiz, Project):");
+        String category = scanner.nextLine();
+
+        System.out.println("Enter Task Difficulty (1 to 3):");
+        int difficulty = scanner.nextInt();
+
+        scanner.nextLine();
+
+        // change later to our algorithm *
+        // System.out.println("Enter Time Required (in hours):");
+        // int time = scanner.nextInt();
+
+        // Create and return the Task object
+        taskAdd(dueDate, name, category, difficulty);
     }
 
     // Method to add a new task
-    public static void taskAdd(String dueDate, String category, int difficulty, int time) {
-        Task newTask = new Task(taskList.size(), dueDate, category, difficulty, time);
+    public static void taskAdd(String dueDate, String name, String category, int difficulty) {
+        int time = estimateTime(category, difficulty);
+        Task newTask = new Task(taskList.size(), name, dueDate, category, difficulty, time);
+
         taskList.add(newTask);
         System.out.println("Task added: " + newTask);
         if (grindset) {
@@ -73,10 +98,11 @@ public class Main {
         for (int i = start; i <= 6; i++) {
             String day = daysOfWeek[i];
             int availHours = weekHours.get(day);
-            if (availHours >= curr.getTime()) {
-                weekHours.put(day, availHours - curr.getTime());
+            int est = estimateTime(curr.getCategory(), curr.getDifficulty());
+            if (availHours >= est) {
+                weekHours.put(day, availHours - est);
                 schedule.get(day).add(curr);
-                System.out.println("Task scheduled on " + day + ". Remaining hours: " + (availHours - curr.getTime()));
+                System.out.println("Task scheduled on " + day + ". Remaining hours: " + (availHours - est));
                 return; // Task successfully scheduled, exit the method
             }
         }
@@ -86,7 +112,7 @@ public class Main {
     }
 
     // public static void splitScheduler(Task curr) {
-
+        
     // }
 
     public static void initializeSchedule() {
@@ -139,15 +165,15 @@ public class Main {
 
 
     // Helper method to estimate time based on category
-    public static int estimateTime(Task curr) {
+    public static int estimateTime(String category, int difficulty) {
         int est = 0;
 
-        if (curr.getCategory().equals("Exam") || curr.getCategory().equals("Project")) {
-            est = 3 * curr.getDifficulty();
-        } else if (curr.getCategory().equals("Quiz")) {
-            est = 2 * curr.getDifficulty();
-        } else if (curr.getCategory().equals("Assignment")) {
-            est = curr.getDifficulty();
+        if (category.equals("Exam") || category.equals("Project")) {
+            est = 3 * difficulty;
+        } else if (category.equals("Quiz")) {
+            est = 2 * difficulty;
+        } else if (category.equals("Assignment")) {
+            est = difficulty;
         }
 
         return est;
