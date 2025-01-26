@@ -98,7 +98,7 @@ public class Main {
         for (int i = start; i <= 6; i++) {
             String day = daysOfWeek[i];
             int availHours = weekHours.get(day);
-            int est = estimateTime(curr.getCategory(), curr.getDifficulty);
+            int est = estimateTime(curr.getCategory(), curr.getDifficulty());
             if (availHours >= est) {
                 weekHours.put(day, availHours - est);
                 schedule.get(day).add(curr);
