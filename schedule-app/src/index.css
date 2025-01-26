@@ -1,8 +1,9 @@
+* {
+  font-family: monospace, sans-serif;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color:#F98909;
@@ -40,6 +41,8 @@ body {
     inset -3px -3px 0 0 #F9A440;
 }
 
+
+/*task styling*/
 .task {
   padding: 0.6rem;
 }
@@ -53,8 +56,8 @@ body {
   list-style-type: none;
   align-self: center;
   border-radius: 0.5rem;
-  background:rgb(255, 154, 77);
-  color:aliceblue;
+  background:#F98909;
+  color:#fff;
 }
 
 .task ul li:hover {
@@ -64,7 +67,7 @@ body {
 
 button {
   border-radius: 0.5rem;
-  background-color: rgb(255, 154, 77);
+  background-color: #F98909;
 }
 /* submit button styling */
 .add-button {
@@ -86,6 +89,7 @@ button {
   box-shadow: 
     -3px -3px #F9A440, 
     inset -3px -3px 0 0 #F9A440;
+  outline-style: outset;
   background-color: #fff;
 }
 

@@ -1,38 +1,43 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import Calendar from "./calendar";
 import Popup from 'reactjs-popup';
 
-function Layout(props) {
 
-  return (
-    <>
-      <div className="homeHeading"><h1>Plan your week ☆⌒(≧▽​° ) </h1></div>
-      <Calendar/>
+export default function PopUp() {
+    const [seen, setSeen] = useState(false)
 
-      <div>
-            <Popup trigger=
-                {<button type="submit" className="add-button" > + Add a Task</button>} 
-                modal nested>
+    function togglePop () {
+        setSeen(!seen);
+    };
+
+    return (
+        <div>
+            <Popup trigger= {<button type="submit" className="add-button" > + Add a Task</button>} modal nested>
                 {
                     close => (
                         <div className='modal'>
                             <div className='content'>
+                            <form>
                                 <h2>Create New Task:</h2>
-                                <form>
-                                  <label>
+                                <label>
                                     Task Name
                                       <input
                                           type="text"
                                       />
                                   </label><br/>
-                                  <label for="difficulty">How hard is this for you?</label>
-                                  <select id="difficulty" name="difficulty">
-                                    <option value="easy">Easy</option>
-                                    <option value="ok">OK</option>
-                                    <option value="difficult">Difficult</option>
+                                  <label for="category">What type of task is this?</label>
+                                  <select id="category" name="category">
+                                    <option value="exam">Exam</option>
+                                    <option value="quiz">Quiz</option>
+                                    <option value="assignment">Assignment</option>
+                                    <option value="project">Project</option>
                                   </select>
                                   <br/>
+                                  <label for="difficulty">How hard is this for you?</label>
+                                  <select id="difficulty" name="difficulty">
+                                    <option value="1">1 (Easy)</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3 (Difficult)</option>
+                                  </select><br/>
                                   <label for="dueDate">When is this due?</label>
                                   <input type="date" id="dueDate" name="dueDate"></input>
                               </form>
@@ -49,8 +54,5 @@ function Layout(props) {
                 }
             </Popup>
         </div>
-    </>
-  );
+    );
 }
-
-export default Layout;
