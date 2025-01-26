@@ -15,22 +15,23 @@ public class Main {
         // Initialize application
         System.out.println("Welcome to Task Scheduler!");
 
+        Scanner scanner = new Scanner(System.in);
+
 		initializeDays();
         initializeSchedule();
 		//printDays();
-        setUp(); // Set up available hours
+        setUp(scanner); // Set up available hours
 
         //testadd
-        promptUserTask();
-
+        promptUserTask(scanner);
+        scanner.close();
     }
 
     // Method to set up available hours based on user input
-    public static void setUp() {
+    public static void setUp(Scanner scanner) {
         // Get user input for available hours
         // Update hoursAvailable and the 'available' array
-        Scanner scanner = new Scanner(System.in);
-
+        
         int habitCheck = -1;
         while ((habitCheck != 0) && (habitCheck != 1)) {
             System.out.println("Do you prefer splitting up your study hours(0) or grinding it out(1)?");
@@ -49,13 +50,9 @@ public class Main {
             // Update the weekHours map
             weekHours.put(day, hoursAvailable);
         }
-
-        // scanner.close();
     }
 
-    public static void promptUserTask() {
-        Scanner scanner = new Scanner(System.in);
-
+    public static void promptUserTask(Scanner scanner) {
         System.out.println("Enter name of task: ");
         String name = scanner.nextLine();
 
@@ -76,7 +73,6 @@ public class Main {
 
         // Create and return the Task object
         taskAdd(dueDate, name, category, difficulty, 0);
-        scanner.close();
     }
 
     // Method to add a new task
