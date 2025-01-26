@@ -73,7 +73,7 @@ public class Main {
         // int time = scanner.nextInt();
 
         // Create and return the Task object
-        taskAdd(dueDate, name, category, difficulty, 0);
+        taskAdd(dueDate, name, category, difficulty);
     }
 
     // Method to add a new task

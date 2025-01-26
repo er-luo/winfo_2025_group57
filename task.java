@@ -59,7 +59,7 @@ public class Task {
     // days away
     public int daysAway() {
         // Define the date format of dueDate
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM-DD-YYYY");
 
         // Parse dueDate into a LocalDate
         LocalDate dueDateParsed = LocalDate.parse(dueDate, formatter);
