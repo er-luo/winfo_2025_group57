@@ -82,7 +82,7 @@ public class Main {
         Task newTask = new Task(taskList.size(), name, dueDate, category, difficulty, time);
 
         taskList.add(newTask);
-        System.out.println("Task added: " + newTask);
+        System.out.println("Task added");
         if (grindset) {
             grindScheduler(newTask);
         } else {
