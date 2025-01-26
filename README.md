@@ -1,5 +1,5 @@
-# winfo_2025_group57: Flowcus! :)
-## Adya Sengupta, Erica Luo, Riya Urs
+# Flowcus! :)
+## Adya Sengupta, Erica Luo, Riya Urs - winfo_2025_group57
 
 Theme: Empowering Students with ADHD to Succeed
 
